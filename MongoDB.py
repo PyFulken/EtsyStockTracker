@@ -1,4 +1,8 @@
 import pymongo
+import os
+from dotenv import load_dotenv
+
+load_dotenv("./config.env")
 
 def connect_to_db():
     """
@@ -6,13 +10,16 @@ def connect_to_db():
 
     Returns a Dictionary with the collection objects, to be used to manipulate the database.
     """
-    mongo = pymongo.MongoClient("mongodb+srv://root:Anna1Anna2Anna3@stocktracker.qgcja.mongodb.net/stock?retryWrites=true&w=majority")
-    db = mongo["stock"]
-    collection_dict = {}
-    collection_dict["prints"] = db["print"]
-    collection_dict["stickers"] = db["sticker"]
-    
-    return collection_dict
+    try:
+        mongo = pymongo.MongoClient(os.environ.get("MONGO_URL"))
+        db = mongo["stock"]
+        collection_dict = {}
+        collection_dict["prints"] = db["print"]
+        collection_dict["stickers"] = db["sticker"]
+        
+        return collection_dict
+    except:
+        print("Oh no!")
 
 def add_stock(collection, name, amount):
     """
