@@ -8,7 +8,7 @@ import requests
 #Mongo Connection
 connect = connect_to_db()
 
-# add_stock(connect["prints"], "Stamps", 10)
+add_stock(connect["prints"], "Stamps", 10)
 
 #GUI
 root = Tk()

@@ -2,7 +2,7 @@ import pymongo
 import os
 from dotenv import load_dotenv
 
-load_dotenv("./config.env")
+load_dotenv("EtsyStockTracker/config.env")
 
 def connect_to_db():
     """
@@ -12,7 +12,7 @@ def connect_to_db():
     """
     try:
         mongo = pymongo.MongoClient(os.environ.get("MONGO_URL"))
-        db = mongo["stock"]
+        db = mongo[os.environ.get("DATABASE")]
         collection_dict = {}
         collection_dict["prints"] = db["print"]
         collection_dict["stickers"] = db["sticker"]
