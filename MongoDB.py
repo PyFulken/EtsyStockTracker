@@ -21,6 +21,18 @@ def connect_to_db():
     except:
         print("Oh no!")
 
+def get_all_stocks(collection_dict):
+
+    try:
+        item_list = []
+        for collection in collection_dict.values():
+            for item in collection.find():
+                formatted_item = [item["name"], item["amount"]]
+                item_list.append(formatted_item)
+        return item_list
+    except:
+        print("Get! Oh no!")
+
 def add_stock(collection, name, amount):
     """
     Adds the 'amount' argument to the 'amount' field of the specified 'name' entry present in 'collection'.

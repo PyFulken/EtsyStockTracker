@@ -8,7 +8,8 @@ import requests
 #Mongo Connection
 connect = connect_to_db()
 
-add_stock(connect["prints"], "Stamps", 10)
+# add_stock(connect["prints"], "Stamps", 10)
+all_items_amounts = get_all_stocks(connect)
 
 #GUI
 root = Tk()
@@ -22,4 +23,9 @@ root.resizable(width="False", height="False")
 
 #Login page
 
+#Current Stock
+for item in all_items_amounts:
+    item_label = ttk.Label(root, justify="center", font="arial 10 bold", wrap=350)
+    item_label.pack()
+    item_label.config(text="{}'s current stock: {}".format(item[0], item[1]))
 root.mainloop()
