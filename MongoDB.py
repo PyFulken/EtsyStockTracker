@@ -27,7 +27,7 @@ def get_all_stocks(collection_dict):
         item_list = []
         for collection in collection_dict.values():
             for item in collection.find():
-                formatted_item = [item["name"], item["amount"]]
+                formatted_item = [collection, item["name"], item["amount"]]
                 item_list.append(formatted_item)
         return item_list
     except:
