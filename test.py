@@ -8,9 +8,8 @@ from functools import partial
 
 #Mongo Connection
 connect = connect_to_db()
-
-# add_stock(connect["prints"], "Stamps", 10)
 all_items_amounts = get_all_stocks(connect)
+# add_stock(connect["prints"], "Stamps", 10)
 
 #GUI
 root = Tk()
@@ -23,8 +22,8 @@ background_label = Label(root, image=background)
 background_label.place(x=0, y=0, relwidth=1, relheight=1)
 
 
-screen_height = root.winfo_screenheight() - 400
-screen_width = root.winfo_screenwidth() - 800
+screen_height = root.winfo_screenheight() - 700
+screen_width = root.winfo_screenwidth() - 1000
 root.geometry("{}x{}".format(screen_width,screen_height))
 root.resizable(width="False", height="False")
 

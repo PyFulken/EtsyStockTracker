@@ -92,28 +92,31 @@ def populate_stock(root, all_items_amounts):
 
         item_iterator +=1
 
-def repopulate_stock(root, frame, connection):
-    frame.destroy()
-    frame = ttk.Label(root)
-    frame.pack()
-    all_items_amounts = get_all_stocks(connection)
+def repopulate_stock(stock_label_parent, stock_label, connection):
     item_iterator=0
+    all_items_amounts = get_all_stocks(connection)
+    stock_label.destroy()
+    stock_label = ttk.Label(stock_label_parent)
+    stock_label.pack()
     for item in all_items_amounts:
-        item_label = ttk.Label(frame, justify="center", font="arial 10 bold", wrap=350, background="#f1bcee", relief="ridge", borderwidth="1px", width=30 )
+        item_label = ttk.Label(stock_label, justify="center", font="arial 10 bold", wrap=350, background="#f1bcee", relief="ridge", borderwidth="1px", width=30 )
         item_label.grid(row=item_iterator, column=0, padx=10, pady=5, sticky="WENS")
         item_label.config(text="{}'s current stock:".format(item[1]))
 
-        item_amount_label = ttk.Label(frame, justify="center", font="arial 10 bold", wrap=350, background="#f1bcee", relief="ridge", borderwidth="1px", width=10 )
+        item_amount_label = ttk.Label(stock_label, justify="center", font="arial 10 bold", wrap=350, background="#f1bcee", relief="ridge", borderwidth="1px", width=10 )
         item_amount_label.grid(row=item_iterator, column=2, padx=10, pady=5)
         item_amount_label.config(text="{}".format(item[2]))
 
-        amount_entry = ttk.Entry(frame, width=10)
+        amount_entry = ttk.Entry(stock_label, width=10)
         amount_entry.grid(row=item_iterator, column=3, padx=10, pady=5)
 
-        add_button = ttk.Button(frame, command=partial(add_stock, item[0], item[1], amount_entry), text="Add")
+        add_button = ttk.Button(stock_label, command=partial(add_stock, item[0], item[1], amount_entry), text="Add")
         add_button.grid(row=item_iterator, column=4, padx=10, pady=5)
         
-        remove_button = ttk.Button(frame, command=partial(remove_stock, item[0], item[1], amount_entry), text="Remove")
+        remove_button = ttk.Button(stock_label, command=partial(remove_stock, item[0], item[1], amount_entry), text="Remove")
         remove_button.grid(row=item_iterator, column=5, padx=10, pady=5)
 
         item_iterator +=1
+
+def add_item(name, amount, collection):
+    pass
