@@ -1,10 +1,12 @@
 import tkinter
+from functools import partial
 from tkinter import *
 from tkinter import ttk
-from MongoDB import *
-from PIL import ImageTk,Image
+
 import requests
-from functools import partial
+from PIL import Image, ImageTk
+
+from deprecated_MongoDB import *
 
 #Mongo Connection
 connect = connect_to_db()
