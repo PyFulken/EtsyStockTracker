@@ -52,7 +52,7 @@ root = Tk()
 
 #Root Window Management
 
-root.title("Monitoring Windows")
+root.title("EZ Stock Tracker 3000-ninator")
 root.maxsize(height=root.winfo_screenheight() - 100)
 root.resizable(width="False", height="False")
 title_label = Label(root, text="Stock Tracker", font = "Helvetica 16 bold italic")
