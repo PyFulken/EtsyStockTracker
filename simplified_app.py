@@ -10,7 +10,7 @@ stock_data = json_handler.load_data()
 def stock_add(new_value, old_data, key):
     if new_value == "":
         status_label.config(text="Please enter a number")
-    elif new_value < 1:
+    elif int(new_value) < 1:
         status_label.config(text="Please enter a positive number")
     elif key not in old_data:
         old_data[key] = int(new_value)
@@ -24,6 +24,8 @@ def stock_add(new_value, old_data, key):
 def stock_remove(new_value, old_data, key):
     if new_value == "":
         status_label.config(text="Please enter a number")
+    elif int(new_value) < 1:
+        status_label.config(text="Please enter a positive number")
     else:
         old_data[key] -= int(new_value)
         json_handler.change_data(old_data)
