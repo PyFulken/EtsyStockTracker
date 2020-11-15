@@ -8,7 +8,6 @@ stock_data = json_handler.load_data()
 
 #Button Commands
 def stock_add(new_value, old_data, key):
-    print(new_value)
     if new_value == "":
         status_label.config(text="Please enter a number")
     elif new_value < 1:
@@ -116,6 +115,5 @@ item_management_remove_button.grid(row=2, column=3, padx=1)
 
 status_label = Label(root, text="Waiting...", font = "Helvetica 10 bold italic")
 status_label.pack(side="bottom")
-refresh_button = Button(root, text="Refresh")
-refresh_button.pack(side="bottom", padx=60, pady=20)
+
 root.mainloop()
