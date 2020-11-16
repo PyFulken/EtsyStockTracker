@@ -75,10 +75,8 @@ def repopulate_amounts():
     amounts, labels = populate_window(new_stock_data)
     for key in amounts.keys():
         amounts[key].set(new_stock_data[key])
-        print(amounts[key])
     for key in labels.keys():
         labels[key].config(text=new_stock_data[key])
-        print(labels[key])
         
 
 
