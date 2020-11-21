@@ -26,6 +26,7 @@ root = Tk()
 
 root.title("Sales Tracker")
 root.maxsize(height=root.winfo_screenheight() - 100)
+root.minsize(550,0)
 root.resizable(width="False", height="False")
 title_label = Label(root, text="Sales Tracker", font = "Helvetica 16 bold italic")
 title_label.pack(side="top")
