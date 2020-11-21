@@ -89,9 +89,6 @@ new_sale_amount.pack(side="left", ipadx=10, padx=10, pady=3)
 new_sale_button = Button(middle_frame, text="Add", command=lambda: add_sale(new_sale_name_var.get(), new_sale_amount_var.get(), sales_data))
 new_sale_button.pack(side="right", ipadx=10, padx=10, pady=3)
 
-total_profit_label = Label(root, font = "Helvetica 12 bold italic", text=f"Total Profit: {total_profit} €")
-total_profit_label.pack()
-
 
 #Item Addition:
 
@@ -118,6 +115,6 @@ new_item_button.pack(side="right", ipadx=10, padx=10, pady=3)
 #Total Profit
 
 total_profit_label = Label(root, font = "Helvetica 12 bold italic", text=f"Total Profit: {total_profit} €")
-total_profit_label.pack()
+total_profit_label.pack(pady=15)
 
 root.mainloop()
